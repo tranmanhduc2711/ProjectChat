@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LogInController">
+   <children>
+      <AnchorPane prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="246.0" layoutY="28.0" text="CHAT APP" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="314.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="91.0" layoutY="111.0" text="Tên người dùng:">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="258.0" layoutY="107.0" prefHeight="31.0" prefWidth="249.0" />
+            <Button layoutX="227.0" layoutY="212.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" text="ĐĂNG NHẬP">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

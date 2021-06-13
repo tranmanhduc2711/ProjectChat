@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="111.0" prefWidth="856.0" style="-fx-background-color: black;">
+         <children>
+            <Label layoutX="366.0" layoutY="39.0" text="CLIENT" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <TabPane prefHeight="522.0" prefWidth="810.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Server List">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="479.0" prefWidth="585.0">
+                           <content>
+                              <TableView prefHeight="602.0" prefWidth="568.0">
+                                <columns>
+                                  <TableColumn prefWidth="173.0" text="Server" />
+                                  <TableColumn prefWidth="192.0" text="Port" />
+                                    <TableColumn prefWidth="202.0" text="Trạng thái" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <Button layoutX="652.0" layoutY="34.0" mnemonicParsing="false" text="Thêm Server" />
+                        <Button layoutX="653.0" layoutY="90.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Xóa Server" />
+                        <Button layoutX="650.0" layoutY="147.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Kết nối" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Đăng kí chat">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="168.0" layoutY="128.0" text="Họ và tên:">
+                           <font>
+                              <Font name="Tahoma" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="322.0" layoutY="124.0" prefHeight="31.0" prefWidth="288.0" />
+                        <Button layoutX="569.0" layoutY="357.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="131.0" text="ĐĂNG KÍ" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
