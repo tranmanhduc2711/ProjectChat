@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChatBoxController">
    <children>
       <AnchorPane prefHeight="66.0" prefWidth="925.0" style="-fx-background-color: black;">
          <children>
@@ -17,14 +16,14 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <Text fill="WHITE" layoutX="171.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="311.0" />
+            <Text fx:id="name_label" fill="WHITE" layoutX="171.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="311.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="530.0" prefWidth="925.0">
          <children>
-            <TextArea layoutX="14.0" layoutY="14.0" prefHeight="409.0" prefWidth="895.0" />
-            <TextArea layoutX="14.0" layoutY="470.0" prefHeight="44.0" prefWidth="715.0" promptText="Nhập dòng chat...." />
-            <ComboBox layoutX="14.0" layoutY="432.0" prefHeight="31.0" prefWidth="93.0" promptText="Emoji" />
+            <TextArea fx:id="chat_area" layoutX="14.0" layoutY="14.0" prefHeight="409.0" prefWidth="895.0" />
+            <TextArea fx:id="input_area" layoutX="14.0" layoutY="470.0" prefHeight="44.0" prefWidth="715.0" promptText="Nhập dòng chat...." />
+            <ComboBox fx:id="emojiBox" layoutX="14.0" layoutY="432.0" prefHeight="31.0" prefWidth="93.0" promptText="Emoji" />
             <Button layoutX="749.0" layoutY="467.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="162.0" text="Gửi">
                <font>
                   <Font size="24.0" />

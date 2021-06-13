@@ -7,12 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChatServerController">
    <children>
       <AnchorPane prefHeight="89.0" prefWidth="793.0" style="-fx-background-color: black;">
          <children>
-            <Label layoutX="354.0" layoutY="30.0" text="SERVER" textFill="WHITE">
+            <Label layoutX="320.0" layoutY="29.0" text="SERVER" textFill="WHITE">
                <font>
                   <Font name="Tahoma" size="24.0" />
                </font>
@@ -27,10 +26,10 @@
                      <children>
                         <ScrollPane prefHeight="438.0" prefWidth="536.0">
                            <content>
-                              <TableView prefHeight="551.0" prefWidth="517.0">
+                              <TableView fx:id="clientTable" prefHeight="551.0" prefWidth="517.0">
                                 <columns>
-                                  <TableColumn prefWidth="251.0" text="Tên client" />
-                                  <TableColumn prefWidth="196.0" text="Port" />
+                                  <TableColumn fx:id="name_column" prefWidth="251.0" style="-fx-alignment: CENTER;" text="Tên client" />
+                                  <TableColumn fx:id="port_column" prefWidth="265.0" style="-fx-alignment: CENTER;" text="Port" />
                                 </columns>
                               </TableView>
                            </content>
@@ -43,7 +42,36 @@
           </Tab>
           <Tab text="Config">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0" prefWidth="801.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="431.0" prefWidth="801.0">
+                     <children>
+                        <Label layoutX="124.0" layoutY="71.0" text="Tên Server:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="124.0" layoutY="136.0" text="Port:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="124.0" layoutY="199.0" text="Trạng thái:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="sv_nameText" layoutX="343.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font></Text>
+                        <Text fx:id="port_Text" layoutX="343.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font></Text>
+                        <Text fx:id="status_Text" layoutX="343.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Tahoma" size="18.0" />
+                           </font></Text>
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

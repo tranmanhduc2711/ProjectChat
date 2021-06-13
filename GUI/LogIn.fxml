@@ -26,8 +26,8 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="258.0" layoutY="107.0" prefHeight="31.0" prefWidth="249.0" />
-            <Button layoutX="227.0" layoutY="212.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" text="ĐĂNG NHẬP">
+            <TextField fx:id="id_text" layoutX="258.0" layoutY="107.0" prefHeight="31.0" prefWidth="249.0" />
+            <Button onAction="#login" layoutX="227.0" layoutY="212.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="143.0" text="ĐĂNG NHẬP">
                <font>
                   <Font size="18.0" />
                </font>

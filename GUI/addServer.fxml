@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.addServerController">
+   <children>
+      <AnchorPane prefHeight="91.0" prefWidth="677.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label layoutX="269.0" layoutY="31.0" text="ADD SERVER" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="361.0" prefWidth="677.0">
+         <children>
+            <Label layoutX="122.0" layoutY="56.0" prefHeight="27.0" prefWidth="94.0" text="Tên server:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="123.0" text="Port:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="188.0" />
+            <Button layoutX="476.0" layoutY="250.0" mnemonicParsing="false" onAction="#submit" prefHeight="44.0" prefWidth="113.0" text="THÊM">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="nameText" layoutX="298.0" layoutY="54.0" prefHeight="31.0" prefWidth="234.0" />
+            <TextField fx:id="portText" layoutX="298.0" layoutY="121.0" prefHeight="31.0" prefWidth="234.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

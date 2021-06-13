@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChatClientController">
    <children>
       <AnchorPane prefHeight="111.0" prefWidth="856.0" style="-fx-background-color: black;">
          <children>
@@ -25,18 +25,19 @@
                      <children>
                         <ScrollPane prefHeight="479.0" prefWidth="585.0">
                            <content>
-                              <TableView prefHeight="602.0" prefWidth="568.0">
+                              <TableView fx:id="serverTable" prefHeight="602.0" prefWidth="568.0">
                                 <columns>
-                                  <TableColumn prefWidth="173.0" text="Server" />
-                                  <TableColumn prefWidth="192.0" text="Port" />
-                                    <TableColumn prefWidth="202.0" text="Trạng thái" />
+                                  <TableColumn fx:id="server_column" prefWidth="173.0" style="-fx-alignment: CENTER;" text="Server" />
+                                  <TableColumn fx:id="port_column" prefWidth="192.0" style="-fx-alignment: CENTER;" text="Port" />
+                                    <TableColumn fx:id="status_column" prefWidth="202.0" style="-fx-alignment: CENTER;" text="Trạng thái" />
                                 </columns>
                               </TableView>
                            </content>
                         </ScrollPane>
-                        <Button layoutX="652.0" layoutY="34.0" mnemonicParsing="false" text="Thêm Server" />
-                        <Button layoutX="653.0" layoutY="90.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Xóa Server" />
-                        <Button layoutX="650.0" layoutY="147.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Kết nối" />
+                        <Button layoutX="652.0" layoutY="34.0" mnemonicParsing="false" onAction="#addServer" prefHeight="37.0" prefWidth="107.0" text="Thêm Server" />
+                        <Button layoutX="653.0" layoutY="90.0" mnemonicParsing="false" onAction="#deleteServer" prefHeight="36.0" prefWidth="108.0" text="Xóa Server" />
+                        <Button layoutX="650.0" layoutY="147.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="112.0" text="Kết nối" />
+                        <Button layoutX="650.0" layoutY="204.0" mnemonicParsing="false" onAction="#refresh" prefHeight="38.0" prefWidth="112.0" text="REFRESH" />
                      </children>
                   </AnchorPane>
             </content>
@@ -50,7 +51,7 @@
                               <Font name="Tahoma" size="20.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="322.0" layoutY="124.0" prefHeight="31.0" prefWidth="288.0" />
+                        <TextField fx:id="nameText" layoutX="322.0" layoutY="124.0" prefHeight="31.0" prefWidth="288.0" />
                         <Button layoutX="569.0" layoutY="357.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="131.0" text="ĐĂNG KÍ" />
                      </children>
                   </AnchorPane>
