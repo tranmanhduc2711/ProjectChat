@@ -16,6 +16,11 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
+            <Text fx:id="name_label" fill="WHITE" layoutX="59.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
       <TabPane prefHeight="522.0" prefWidth="810.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -36,7 +41,7 @@
                         </ScrollPane>
                         <Button layoutX="652.0" layoutY="34.0" mnemonicParsing="false" onAction="#addServer" prefHeight="37.0" prefWidth="107.0" text="Thêm Server" />
                         <Button layoutX="653.0" layoutY="90.0" mnemonicParsing="false" onAction="#deleteServer" prefHeight="36.0" prefWidth="108.0" text="Xóa Server" />
-                        <Button layoutX="650.0" layoutY="147.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="112.0" text="Kết nối" />
+                        <Button layoutX="650.0" layoutY="147.0" mnemonicParsing="false" onAction="#connectServer" prefHeight="36.0" prefWidth="112.0" text="Kết nối" />
                         <Button layoutX="650.0" layoutY="204.0" mnemonicParsing="false" onAction="#refresh" prefHeight="38.0" prefWidth="112.0" text="REFRESH" />
                      </children>
                   </AnchorPane>

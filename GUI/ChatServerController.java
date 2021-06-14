@@ -1,6 +1,5 @@
 package GUI;
 
-import Socket.Client;
 import Socket.Server;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,11 +21,11 @@ public class ChatServerController  implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    private TableView clientTable;
+    private TableView<User> clientTable;
     @FXML
-    private TableColumn name_column;
+    private TableColumn<User,String> name_column;
     @FXML
-    private TableColumn port_column;
+    private TableColumn<User,Integer> age_column;
    @FXML
     private Text sv_nameText;
    @FXML
@@ -35,7 +34,7 @@ public class ChatServerController  implements Initializable {
     private Text status_Text;
 
     public static Server curServer;
-    private ObservableList<Client> clientList = FXCollections.observableArrayList();
+    private ObservableList<User> clientList = FXCollections.observableArrayList();
 
    public void setConfig(Server sv)
    {
@@ -53,16 +52,16 @@ public class ChatServerController  implements Initializable {
     @FXML
     public void refresh()
     {
-        if(curServer.listSK==null)
+        if(curServer.list_client==null)
             return;
         if(clientList!=null)
             clientList.clear();
-        for(int i=0;i<curServer.listSK.size();i++)
+        for(int i=0;i<curServer.list_client.size();i++)
         {
-            clientList.add(curServer.listSK.get(i));
+            clientList.add(curServer.list_client.get(i));
         }
-        name_column.setCellValueFactory(new PropertyValueFactory<Server, String>("name"));
-        port_column.setCellValueFactory(new PropertyValueFactory<Server, Integer>("port"));
+        name_column.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
+        age_column.setCellValueFactory(new PropertyValueFactory<User, Integer>("age"));
         clientTable.setItems(clientList);
     }
 }

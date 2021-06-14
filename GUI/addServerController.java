@@ -1,12 +1,16 @@
 package GUI;
 
+import IOclass.IO;
 import Socket.Server;
+import Socket.ServerT;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
 
@@ -25,8 +29,7 @@ public class addServerController {
        portText.clear();
    }
     @FXML
-    public void submit(ActionEvent event)
-    {
+    public void submit(ActionEvent event) throws IOException {
         String name=nameText.getText();
 
         int port=Integer.parseInt(portText.getText());
@@ -50,9 +53,16 @@ public class addServerController {
                     }
                 }
             }
-            Server server=new Server(name,port);
-            Main.list_Server.add(server);
-            System.out.println(Main.list_Server.get(0).getSv_name());
+            //thread chay server moi duoc tao
+            Runnable r = new ServerT(port);
+            new Thread(r).start();
+
+
+            Server sv=new Server(name,port);
+            Main.list_Server.add(sv);
+            //luu server
+            IO.luuFileBinary(Main.list_Server,"data.txt");
+
             Stage stage=new Stage();
             stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.close();

@@ -1,6 +1,6 @@
 package GUI;
 
-import Socket.Client;
+
 import Socket.Server;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,10 +15,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChatClientController implements Initializable {
@@ -35,11 +37,14 @@ public class ChatClientController implements Initializable {
     private TableColumn status_column;
     @FXML
     private TextField nameText;
+    @FXML
+    private Text name_label;
 
-    private Client curClient;
+    private User curClient;
     private ObservableList<Server> serverList = FXCollections.observableArrayList();
+    public static ArrayList<User> users = new ArrayList<User>();
 
-    public void setClient(Client cl)
+    public void setClient(User cl)
     {
         curClient=cl;
     }
@@ -56,7 +61,9 @@ public class ChatClientController implements Initializable {
         {
             serverList.clear();
         }
-        serverList.addAll(Main.list_Server);
+
+        serverList.addAll(Main.list_Server);//?
+
         server_column.setCellValueFactory(new PropertyValueFactory<Server, String>("sv_name"));
         port_column.setCellValueFactory(new PropertyValueFactory<Server, Integer>("port"));
         status_column.setCellValueFactory(new PropertyValueFactory<Server,String>("status"));
@@ -90,14 +97,15 @@ public class ChatClientController implements Initializable {
         Server server = (Server) serverTable.getSelectionModel().getSelectedItem();
         if (server == null)
             return;
-        server.listSK.add(curClient);
-        curClient.setPort(server.getPort());
+        server.list_client.add(curClient);//them client vao server
         ChatServerController.curServer=server;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatServer.fxml"));
         loader.load();
-        System.out.println(server.getPort());
+
         ChatServerController controller = loader.getController();
         controller.setConfig(server);
+
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(loader.getRoot());
         stage.setScene(scene);
