@@ -53,9 +53,7 @@ public class addServerController {
                     }
                 }
             }
-            //thread chay server moi duoc tao
-            Runnable r = new ServerT(port);
-            new Thread(r).start();
+
 
 
             Server sv=new Server(name,port);

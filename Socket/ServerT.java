@@ -11,13 +11,20 @@ public class ServerT implements Runnable{
 
     private static ArrayList<ClientHandler> clients = new ArrayList<ClientHandler>();
 
+
+
+
+
     public ServerT(int port) {
         this.port = port;
     }
 
+
+
     public void run(){
         ServerSocket serverSocket;
         Socket socket;
+
         try {
             serverSocket = new ServerSocket(port);//8889
             while(true) {
@@ -33,23 +40,7 @@ public class ServerT implements Runnable{
         }
     }
 
-    public static void main(String[] args) {
-        ServerSocket serverSocket;
-        Socket socket;
-        try {
-            serverSocket = new ServerSocket(8889);//8889
-            while(true) {
-                System.out.println("Waiting for clients...");
-                socket = serverSocket.accept();
-                System.out.println("Connected");
-                ClientHandler clientThread = new ClientHandler(socket, clients);
-                clients.add(clientThread);
-                clientThread.start();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
 
     public int getPort() {

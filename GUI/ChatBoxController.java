@@ -41,7 +41,7 @@ public class ChatBoxController extends Thread  implements Initializable  {
     }
     public void connectSocket() {
         try {
-            socket = new Socket("localhost", 8889);
+            socket = new Socket("localhost", curServer.getPort());
             System.out.println("Socket is connected with server!");
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new PrintWriter(socket.getOutputStream(), true);
@@ -55,7 +55,7 @@ public class ChatBoxController extends Thread  implements Initializable  {
         try {
             while (true) {
                 String msg = reader.readLine();
-                String[] tokens = msg.split(" ");
+                String[] tokens = msg.split("\\s+");
                 String cmd = tokens[0];
                 System.out.println(cmd);
                 StringBuilder fulmsg = new StringBuilder();
@@ -63,7 +63,7 @@ public class ChatBoxController extends Thread  implements Initializable  {
                     fulmsg.append(tokens[i]);
                 }
                 System.out.println(fulmsg);
-                if (cmd.equalsIgnoreCase(  "TranManhDuc"+":")) {
+                if (cmd.equalsIgnoreCase(  ChatClientController.curClient.getName()+":")) {
                     continue;
                 } else if(fulmsg.toString().equalsIgnoreCase("bye")) {
                     break;

@@ -1,6 +1,7 @@
 package GUI;
 
 
+import IOclass.IO;
 import Socket.Server;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -38,20 +40,25 @@ public class ChatClientController implements Initializable {
     @FXML
     private TextField nameText;
     @FXML
+    private TextField id_text;
+    @FXML
+    private TextField age_text;
+    @FXML
     private Text name_label;
+    @FXML
+    private Alert alert;
 
-    private User curClient;
+    public static User curClient;
     private ObservableList<Server> serverList = FXCollections.observableArrayList();
     public static ArrayList<User> users = new ArrayList<User>();
 
-    public void setClient(User cl)
-    {
-        curClient=cl;
-    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         refresh();
+        name_label.setText(curClient.getName());
     }
 
     @FXML
@@ -97,7 +104,10 @@ public class ChatClientController implements Initializable {
         Server server = (Server) serverTable.getSelectionModel().getSelectedItem();
         if (server == null)
             return;
+
         server.list_client.add(curClient);//them client vao server
+        IO.luuFileBinary(Main.list_Server,"data.txt");
+
         ChatServerController.curServer=server;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatServer.fxml"));
@@ -113,4 +123,36 @@ public class ChatClientController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void addTabSelected()
+    {
+        nameText.clear();
+        id_text.clear();
+        age_text.clear();
+    }
+    @FXML
+    public void addUser() throws IOException {
+        String name=nameText.getText() ;
+        String id=id_text.getText();
+        int age=Integer.parseInt(age_text.getText());
+        if(nameText.getText().isEmpty() || nameText.getText().isBlank()||id_text.getText().isEmpty() || id_text.getText().isBlank())
+        {
+            return;
+        }
+        if(Main.list_user.isEmpty()==false) {
+            for (User item : Main.list_user) {
+                if (item.getId().equals(id)) {
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("LogIn");
+                    // Header Text: null
+                    alert.setHeaderText(null);
+                    alert.setContentText("User already exists!");
+                    alert.showAndWait();
+                    return;
+                }
+            }
+        }
+        User user=new User(id,name,age);
+        IO.luuFileUser(Main.list_user,"user.txt");
+    }
 }

@@ -28,15 +28,17 @@
                            <content>
                               <TableView fx:id="clientTable" prefHeight="551.0" prefWidth="517.0">
                                 <columns>
-                                  <TableColumn fx:id="name_column" prefWidth="251.0" style="-fx-alignment: CENTER;" text="Tên client" />
-                                  <TableColumn fx:id="age_column" prefWidth="265.0" style="-fx-alignment: CENTER;" text="Age" />
+                                  <TableColumn fx:id="name_column" prefWidth="166.0" style="-fx-alignment: CENTER;" text="Tên client" />
+                                  <TableColumn fx:id="age_column" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Age" />
+                                    <TableColumn fx:id="id_column" prefWidth="169.0" text="Id" />
                                 </columns>
                               </TableView>
                            </content>
                         </ScrollPane>
-                        <Button layoutX="572.0" layoutY="49.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="99.0" text="ĐÓNG" />
-                        <Button layoutX="574.0" layoutY="108.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="97.0" text="MỞ" />
-                        <Button fx:id="refresh" layoutX="574.0" layoutY="160.0" mnemonicParsing="false" onAction="#refresh" prefHeight="47.0" prefWidth="95.0" text="REFRESH" />
+                        <Button layoutX="572.0" layoutY="49.0" mnemonicParsing="false" onAction="#closeServer" prefHeight="45.0" prefWidth="106.0" text="ĐÓNG" />
+                        <Button layoutX="574.0" layoutY="108.0" mnemonicParsing="false" onAction="#openServer" prefHeight="44.0" prefWidth="104.0" text="MỞ" />
+                        <Button fx:id="refresh" layoutX="574.0" layoutY="160.0" mnemonicParsing="false" onAction="#refresh" prefHeight="47.0" prefWidth="104.0" text="REFRESH" />
+                        <Button layoutX="574.0" layoutY="220.0" mnemonicParsing="false" onAction="#joinChatRoom" prefHeight="43.0" prefWidth="104.0" text="JOIN CHAT " />
                      </children>
                   </AnchorPane>
             </content>

@@ -25,7 +25,7 @@
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="id_text" layoutX="256.0" layoutY="80.0" prefHeight="31.0" prefWidth="249.0" />
+            <TextField fx:id="name_text" layoutX="256.0" layoutY="80.0" prefHeight="31.0" prefWidth="243.0" />
             <Button layoutX="227.0" layoutY="212.0" mnemonicParsing="false" onAction="#login" prefHeight="44.0" prefWidth="143.0" text="ĐĂNG NHẬP">
                <font>
                   <Font size="18.0" />
@@ -37,6 +37,12 @@
                </font>
             </Label>
             <TextField fx:id="age_text" layoutX="256.0" layoutY="132.0" prefHeight="31.0" prefWidth="243.0" />
+            <Label layoutX="138.0" layoutY="37.0" text="ID:">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="id_text" layoutX="256.0" layoutY="32.0" prefHeight="31.0" prefWidth="243.0" />
          </children>
       </AnchorPane>
    </children>
