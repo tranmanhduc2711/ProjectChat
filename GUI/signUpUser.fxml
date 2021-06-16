@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.signUpUserController">
+   <children>
+      <AnchorPane prefHeight="95.0" prefWidth="629.0" style="-fx-background-color: black;">
+         <children>
+            <Label layoutX="237.0" layoutY="33.0" text="SIGN UP USER" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="321.0" prefWidth="629.0">
+         <children>
+            <TextField fx:id="idText" layoutX="291.0" layoutY="56.0" />
+            <TextField fx:id="nameText" layoutX="291.0" layoutY="120.0" />
+            <TextField fx:id="ageText" layoutX="291.0" layoutY="186.0" />
+            <Label layoutX="114.0" layoutY="61.0" text="ID:">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="114.0" layoutY="125.0" text="Tên:">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="114.0" layoutY="191.0" text="Tuổi">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="461.0" layoutY="251.0" mnemonicParsing="false" onAction="#addUser" prefHeight="45.0" prefWidth="112.0" text="ĐĂNG KÍ">
+               <font>
+                  <Font name="Tahoma" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

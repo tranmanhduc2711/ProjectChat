@@ -69,7 +69,7 @@ public class ChatClientController implements Initializable {
             serverList.clear();
         }
 
-        serverList.addAll(Main.list_Server);//?
+        serverList.addAll(Main.list_Server);
 
         server_column.setCellValueFactory(new PropertyValueFactory<Server, String>("sv_name"));
         port_column.setCellValueFactory(new PropertyValueFactory<Server, Integer>("port"));
@@ -153,6 +153,7 @@ public class ChatClientController implements Initializable {
             }
         }
         User user=new User(id,name,age);
+        Main.list_user.add(user);
         IO.luuFileUser(Main.list_user,"user.txt");
     }
 }

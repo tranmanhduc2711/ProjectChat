@@ -16,6 +16,7 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
+            <Button layoutX="608.0" layoutY="29.0" mnemonicParsing="false" text="QUAY LẠI" />
          </children>
       </AnchorPane>
       <TabPane prefHeight="480.0" prefWidth="801.0" tabClosingPolicy="UNAVAILABLE">
@@ -30,7 +31,7 @@
                                 <columns>
                                   <TableColumn fx:id="name_column" prefWidth="166.0" style="-fx-alignment: CENTER;" text="Tên client" />
                                   <TableColumn fx:id="age_column" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Age" />
-                                    <TableColumn fx:id="id_column" prefWidth="169.0" text="Id" />
+                                    <TableColumn fx:id="id_column" prefWidth="169.0" style="-fx-alignment: CENTER;" text="Id" />
                                 </columns>
                               </TableView>
                            </content>

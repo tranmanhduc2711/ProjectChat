@@ -1,5 +1,7 @@
 package GUI;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,19 +27,24 @@ public class ChatBoxController extends Thread  implements Initializable  {
     @FXML
     private TextArea input_area;
     @FXML
-    private ComboBox emojiBox;
+     private ComboBox<String> emojiBox;
     @FXML
     private Text    name_label;
+
 
     BufferedReader reader;
     PrintWriter writer;
     Socket socket;
     public static Server curServer;
 
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        name_label.setText("Tran Manh Duc");
-        connectSocket();
+        //name_label.setText(ChatClientController.curClient.getName());
+        emojiBox.getItems().addAll("smile","sad","laugh","scare","bleh bleh");
+        //connectSocket();
     }
     public void connectSocket() {
         try {
@@ -55,20 +62,22 @@ public class ChatBoxController extends Thread  implements Initializable  {
         try {
             while (true) {
                 String msg = reader.readLine();
-                String[] tokens = msg.split("\\s+");
-                String cmd = tokens[0];
-                System.out.println(cmd);
-                StringBuilder fulmsg = new StringBuilder();
-                for(int i = 1; i < tokens.length; i++) {
-                    fulmsg.append(tokens[i]);
-                }
-                System.out.println(fulmsg);
-                if (cmd.equalsIgnoreCase(  ChatClientController.curClient.getName()+":")) {
-                    continue;
-                } else if(fulmsg.toString().equalsIgnoreCase("bye")) {
-                    break;
-                }
-                chat_area.appendText(msg + "\n");
+               if(msg!=null) {
+                   String[] tokens = msg.split("\\s+");
+                   String cmd = tokens[0];
+                   System.out.println(cmd + "cmd");
+                   StringBuilder fulmsg = new StringBuilder();
+                   for (int i = 1; i < tokens.length; i++) {
+                       fulmsg.append(tokens[i]);
+                   }
+                   System.out.println(fulmsg);
+                   if (cmd.equalsIgnoreCase(ChatClientController.curClient.getName() + ":")) {
+                       continue;
+                   } else if (fulmsg.toString().equalsIgnoreCase("bye")) {
+                       break;
+                   }
+                   chat_area.appendText(msg + "\n");
+               }
             }
             reader.close();
             writer.close();
@@ -79,14 +88,19 @@ public class ChatBoxController extends Thread  implements Initializable  {
     }
     public void handleSendEvent(ActionEvent event) {
         send();
-        System.out.println("name");
-
+       //System.out.println("name");
     }
 
 
     public void send() {
+        emojiBox.valueProperty().set(null);
         String msg = input_area.getText();
-        writer.println("username" + ": " + msg);
+        if(emojiBox.getSelectionModel().isSelected(0))
+        {
+            msg+=new String(Character.toChars(Integer.parseInt("U+1F601")));
+        }
+        System.out.println(msg);
+        writer.println(ChatClientController.curClient.getName() + ": " + msg);
         chat_area.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         chat_area.appendText("Me: " + msg + "\n");
         input_area.setText("");
@@ -94,5 +108,6 @@ public class ChatBoxController extends Thread  implements Initializable  {
             System.exit(0);
         }
     }
+
 
 }
