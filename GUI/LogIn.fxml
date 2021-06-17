@@ -20,24 +20,18 @@
       </AnchorPane>
       <AnchorPane prefHeight="314.0" prefWidth="600.0">
          <children>
-            <Label layoutX="94.0" layoutY="84.0" text="Tên người dùng:">
-               <font>
-                  <Font name="Tahoma" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="name_text" layoutX="256.0" layoutY="80.0" prefHeight="31.0" prefWidth="243.0" />
             <Button layoutX="356.0" layoutY="209.0" mnemonicParsing="false" onAction="#login" prefHeight="44.0" prefWidth="143.0" text="ĐĂNG NHẬP">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label layoutX="138.0" layoutY="37.0" text="ID:">
+            <Label layoutX="135.0" layoutY="89.0" text="ID:">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="id_text" layoutX="256.0" layoutY="32.0" prefHeight="31.0" prefWidth="243.0" />
-            <Button onAction="#signUpUser" layoutX="103.0" layoutY="209.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="116.0" text="ĐĂNG KÍ">
+            <TextField fx:id="id_text" layoutX="250.0" layoutY="85.0" prefHeight="31.0" prefWidth="243.0" />
+            <Button layoutX="103.0" layoutY="209.0" mnemonicParsing="false" onAction="#signUpUser" prefHeight="44.0" prefWidth="116.0" text="ĐĂNG KÍ">
                <font>
                   <Font name="Tahoma" size="18.0" />
                </font>

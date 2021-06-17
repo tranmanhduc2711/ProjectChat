@@ -22,8 +22,7 @@ public class LogInController {
     private Parent root;
     private User curClient;
     @FXML private TextField id_text;
-    @FXML
-    private TextField name_text;
+
     @FXML
     private Alert alert;
 
@@ -31,9 +30,9 @@ public class LogInController {
 
     @FXML
     public void login(ActionEvent e) throws IOException {
-        String name=name_text.getText();
+
         String id=id_text.getText();
-        if(name_text.getText().isEmpty() || name_text.getText().isBlank()||id_text.getText().isEmpty() || id_text.getText().isBlank())
+        if(id_text.getText().isEmpty() || id_text.getText().isBlank())
         {
             return;
         }
@@ -50,7 +49,6 @@ public class LogInController {
         if (check == false) {
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("LogIn");
-            // Header Text: null
             alert.setHeaderText(null);
             alert.setContentText("User not found!");
             alert.showAndWait();

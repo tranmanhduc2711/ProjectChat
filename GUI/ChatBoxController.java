@@ -6,11 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
 import javafx.scene.text.Text;
 import Socket.Server;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,9 +44,9 @@ public class ChatBoxController extends Thread  implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //name_label.setText(ChatClientController.curClient.getName());
-        emojiBox.getItems().addAll("smile","sad","laugh","scare","bleh bleh");
-        //connectSocket();
+        name_label.setText(ChatClientController.curClient.getName());
+        emojiBox.getItems().addAll("smile","sad","laugh","scare","bleh");
+        connectSocket();
     }
     public void connectSocket() {
         try {
@@ -93,12 +95,9 @@ public class ChatBoxController extends Thread  implements Initializable  {
 
 
     public void send() {
-        emojiBox.valueProperty().set(null);
+        String emoji=emoji();
         String msg = input_area.getText();
-        if(emojiBox.getSelectionModel().isSelected(0))
-        {
-            msg+=new String(Character.toChars(Integer.parseInt("U+1F601")));
-        }
+        msg+=emoji;
         System.out.println(msg);
         writer.println(ChatClientController.curClient.getName() + ": " + msg);
         chat_area.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
@@ -107,7 +106,49 @@ public class ChatBoxController extends Thread  implements Initializable  {
         if(msg.equalsIgnoreCase("BYE") || (msg.equalsIgnoreCase("logout"))) {
             System.exit(0);
         }
+        emojiBox.getSelectionModel().clearSelection();
     }
-
+    @FXML
+    public String emoji()
+    {
+        String emo;
+        String res=emojiBox.getSelectionModel().getSelectedItem();
+        if(res==null)
+            return "\0";
+        if(res.equals("smile"))
+        {
+            return new String(Character.toChars(0x1F60A));
+        }
+        else if(res.equals("sad"))
+        {
+            return new String(Character.toChars(0x1F614));
+        }
+        else if(res.equals("laugh"))
+        {
+            return new String(Character.toChars(0x1F602));
+        }
+        else if(res.equals("scare"))
+        {
+            return new String(Character.toChars(0x1F628));
+        }
+        else if(res.equals("bleh"))
+        {
+            return new String(Character.toChars(0x1F61D));
+        }
+        return "\0";
+    }
+    @FXML
+    public void exit_but(ActionEvent event)
+    {
+        Stage stage=new Stage();
+        stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void webcam_but()
+    {
+        WebcamClass cam=new WebcamClass();
+        cam.run();
+    }
 
 }

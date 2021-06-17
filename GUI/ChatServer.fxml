@@ -16,7 +16,7 @@
                   <Font name="Tahoma" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="608.0" layoutY="29.0" mnemonicParsing="false" text="QUAY LẠI" />
+            <Button onAction="#back" layoutX="608.0" layoutY="29.0" mnemonicParsing="false" text="QUAY LẠI" />
          </children>
       </AnchorPane>
       <TabPane prefHeight="480.0" prefWidth="801.0" tabClosingPolicy="UNAVAILABLE">

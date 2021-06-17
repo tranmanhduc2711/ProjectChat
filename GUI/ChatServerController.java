@@ -175,6 +175,17 @@ public class ChatServerController  implements Initializable {
 
         ChatBoxController controller=loader.getController();
 
+        stage=new Stage();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    @FXML
+    public void back(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatClient.fxml"));
+        root=loader.load();
         stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

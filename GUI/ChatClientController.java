@@ -56,7 +56,6 @@ public class ChatClientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         refresh();
         name_label.setText(curClient.getName());
     }
@@ -105,8 +104,21 @@ public class ChatClientController implements Initializable {
         if (server == null)
             return;
 
-        server.list_client.add(curClient);//them client vao server
-        IO.luuFileBinary(Main.list_Server,"data.txt");
+
+        boolean checkExistUser=false;
+        //check xem user da duoc luu vao server chua
+        for(User item:server.list_client)
+        {
+            if(curClient.getId().equals(item))
+            {
+               checkExistUser=true;
+               break;
+            }
+        }
+        if(checkExistUser !=true) {
+            server.list_client.remove(curClient);
+            IO.luuFileBinary(Main.list_Server, "data.txt");
+        }
 
         ChatServerController.curServer=server;
 
